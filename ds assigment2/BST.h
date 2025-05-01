@@ -49,8 +49,8 @@ struct BST {
 		
 		bool display(int, int); // display the tree in asccending or descending order
 		
-		void display2(BTNode*, int, int); //  recursive function for display()
-		void display3(BTNode*,int);//  print the tree
+		void display2(BTNode*, int, int, ofstream&); //  recursive function for display()
+		void display3(BTNode*,int, ofstream&);//  print the tree
 
 		BTNode* finditem(BTNode*, type);
 		bool CloneSubtree2(BTNode*, BTNode*&);
