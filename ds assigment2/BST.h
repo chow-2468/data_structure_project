@@ -52,6 +52,13 @@ struct BST {
 		void display2(BTNode*, int, int); //  recursive function for display()
 		void display3(BTNode*,int);//  print the tree
 
+		BTNode* finditem(BTNode*, type);
+		bool CloneSubtree2(BTNode*, BTNode*&);
+		bool CloneSubtree(BST, type);
+
+		bool printLevelNodes();
+		bool printPath();
+
 };
 
 
