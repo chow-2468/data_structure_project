@@ -364,3 +364,53 @@ void BST::display2(BTNode* cur, int order, int source) {
 		output.close(); // close the file
 	}
 }
+
+
+BTNode* BST::finditem(BTNode* cur, type item) {
+	if (cur->item.id == NULL) return NULL;
+	if (cur->item.compare2(item))  return cur;
+	if (cur->item.compare1(item))finditem(cur->left, item);
+	else finditem(cur->right, item);
+
+}
+
+bool BST::CloneSubtree2(BTNode* cur, BTNode*& root) {
+	if (cur == NULL) return true;
+
+	root = new BTNode(cur->item);
+	return CloneSubtree2(cur->left, root->left) && CloneSubtree2(cur->right, root->right);
+}
+
+bool BST::CloneSubtree(BST t1, type item) {
+	if (!empty()) return false;
+	if (t1.empty()) return false;
+
+
+	BTNode* cur = t1.finditem(t1.root, item);
+	if (cur == NULL) {
+		cout << "Cannot clone subtree." << endl;
+		return false;
+	}
+
+	CloneSubtree2(cur, root);
+
+	cout << "T1:" << endl;
+	t1.preOrderPrint();
+	cout << "T2:" << endl;
+	preOrderPrint();
+
+	return true;
+}
+
+
+
+bool BST::printLevelNodes() {
+
+	topDownLevelTraversal();
+
+	return true;
+}
+
+bool BST::printPath() {
+	return true;
+}

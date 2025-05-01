@@ -13,16 +13,13 @@
 using namespace std;
 
 bool readFile(const char *, BST *);
-//int menu();
+int menu();
 
 int main() {
 	int choose, order;
-	BST t1, t2;
 	type item;
+	BST t1, t2;
 	char file[30];
-	BST t1; // create a BST object
-	readFile("student.txt", &t1);// read the file and insert the data into the BST
-	t1.display(2, 1); // 
 
 	while (choose = menu(), choose != 7) {
 		if (choose == 1) {
@@ -113,54 +110,6 @@ bool readFile(const char* filename, BST* t1) {
 	return true;
 }
 
-BTNode* BST::finditem(BTNode* cur, type item) {
-	if (cur->item.id == NULL) return NULL;
-	if (cur->item.compare2(item))  return cur;
-	if (cur->item.compare1(item))finditem(cur->left, item);
-	else finditem(cur->right, item);
-
-}
-
-bool BST::CloneSubtree2(BTNode* cur, BTNode*& root) {
-	if (cur == NULL) return true;
-
-	root = new BTNode(cur->item);
-	return CloneSubtree2(cur->left, root->left) && CloneSubtree2(cur->right, root->right);
-}
-
-bool BST::CloneSubtree(BST t1, type item) {
-	if (!empty()) return false;
-	if (t1.empty()) return false;
-
-
-	BTNode* cur = t1.finditem(t1.root, item);
-	if (cur == NULL) {
-		cout << "Cannot clone subtree." << endl;
-		return false;
-	}
-
-	CloneSubtree2(cur, root);
-
-	cout << "T1:" << endl;
-	t1.preOrderPrint();
-	cout << "T2:" << endl;
-	preOrderPrint();
-
-	return true;
-}
-
-
-
-bool BST::printLevelNodes() {
-
-	topDownLevelTraversal();
-
-	return true;
-}
-
-bool BST::printPath() {
-	return true;
-}
 
 
 int menu() {
