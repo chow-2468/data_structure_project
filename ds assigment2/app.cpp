@@ -20,6 +20,8 @@ int main() {
 	type item;
 	BST t1, t2;
 	char file[30];
+	readFile("student.txt", &t1);
+	t1.display(1, 2);
 
 
 	while (choose = menu(), choose != 7) {
