@@ -289,6 +289,7 @@ bool BST::deepestNodes() {
 				cout << "\nCGPA: " << cur->item.cgpa;
 				cout << "\n";
 			}
+			return true;
 		}
 		else {
 			while (!cur_level.empty()) // clear list
