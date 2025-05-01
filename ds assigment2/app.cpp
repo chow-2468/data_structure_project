@@ -18,7 +18,7 @@ bool readFile(const char *, BST *);
 int main() {
 	BST t1; // create a BST object
 	readFile("student.txt", &t1);// read the file and insert the data into the BST
-	t1.display(2, 1); // 
+	t1.display(2,1); // 
 
 	system("pause");
 	return 0;
