@@ -306,5 +306,61 @@ bool BST::deepestNodes() {
 }
 
 
+bool BST::display(int order, int source) {
 
+	if (empty())
+		return false;
+	ofstream output("student-info.txt",ios::trunc); // clear the file
+	output.close();
+	display2(root, order, source);
+	return true;
+}
 
+void BST::display2(BTNode* cur, int order, int source) {
+	if (cur == NULL) return;
+
+	if (order == 1) { // pre-order
+
+		if (cur->left != NULL)
+			display2(cur->left, order, source);
+		if (cur->right != NULL)
+			display2(cur->right, order, source);
+	}
+	else{
+
+		if (cur->right != NULL)
+			display2(cur->right, order, source);
+
+		if (cur->left != NULL)
+			display2(cur->left, order, source);
+		
+	
+	}
+
+	if (source == 1) {
+		cout << "\nName: " << cur->item.name;
+		cout << "\nID: " << cur->item.id;
+		cout << "\nAddress: " << cur->item.address;
+		cout << "\nDate of Birth: " << cur->item.DOB;
+		cout << "\nPhone No: " << cur->item.phone_no;
+		cout << "\nCourse: " << cur->item.course;
+		cout << "\nCGPA: " << cur->item.cgpa;
+		cout << "\n";
+	}
+	else {
+		ofstream output("student-info.txt", ios::app); // append to file
+		if (!output) {
+			cout << "Error opening file" << endl;
+			return;
+		}
+		output << "\nName: " << cur->item.name;
+		output << "\nID: " << cur->item.id;
+		output << "\nAddress: " << cur->item.address;
+		output << "\nDate of Birth: " << cur->item.DOB;
+		output << "\nPhone No: " << cur->item.phone_no;
+		output << "\nCourse: " << cur->item.course;
+		output << "\nCGPA: " << cur->item.cgpa;
+		output << "\n";
+		output.close(); // close the file
+	}
+}

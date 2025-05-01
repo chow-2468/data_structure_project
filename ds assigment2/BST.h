@@ -47,8 +47,9 @@ struct BST {
 
 		bool deepestNodes();	// find the deepest nodes of the tree and print;
 		
+		bool display(int , int );
 		
-
+		void display2(BTNode*, int, int);
 
 };
 
