@@ -51,6 +51,10 @@ struct BST {
 		
 		void display2(BTNode*, int, int);
 
+		BTNode* finditem(BTNode*, type);
+		bool CloneSubtree2(BTNode*, BTNode*&);
+		bool CloneSubtree(BST, type);
+
 };
 
 
