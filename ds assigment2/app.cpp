@@ -13,7 +13,7 @@
 using namespace std;
 
 bool readFile(const char *, BST *);
-//int menu();
+int menu();
 
 int main() {
 	int choose, order;
