@@ -71,9 +71,9 @@ bool readFile(const char* filename, BST* t1) {
 	char* ptr;
 	while (!input.eof()) { //get whole line untill meet '\n'
 		input.getline(hold, 100, '\n');
-		ptr = strchr(hold, '=') + 2;
+		ptr = strchr(hold, '=') + 2; // point to the position after "= " which is the value we want
 		strcpy(strcat_hold, ptr);
-		temp.id = stoi(strcat_hold); // find the first '='
+		temp.id = stoi(strcat_hold); // convert string to int and assign to id
 
 
 		input.getline(hold, 100, '\n'); // get name
@@ -104,7 +104,7 @@ bool readFile(const char* filename, BST* t1) {
 		input.getline(hold, 100, '\n');// get cgpa
 		ptr = strchr(hold, '=') + 2;
 		strcpy(strcat_hold, ptr);
-		temp.cgpa = stod(strcat_hold);
+		temp.cgpa = stod(strcat_hold); // convert string to double and assign to cgpa
 
 		input.ignore(); // ignore the blank line in the file
 		t1->insert(temp); // insert the student information into the tree
