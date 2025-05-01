@@ -258,6 +258,52 @@ void BST::case3(BTNode *cur) {
 	free(is);
 }
 
+bool BST::deepestNodes() {
+	BTNode* cur;
+	if (empty()) return false;
+	Queue cur_level;
+	Queue next_level; // 
+	cur_level.enqueue(root);
+	while (!cur_level.empty())
+	{
+		for (int i = 0; i < cur_level.count; i++)
+		{
+			cur_level.dequeue(cur);
+			if (cur->left != NULL)
+				next_level.enqueue(cur->left);
+			if (cur->right != NULL)
+				next_level.enqueue(cur->right);
+			cur_level.enqueue(cur);
+		}
+		if (next_level.empty()) { // no more child
+			for (int i = 1; !cur_level.empty();i++) //print
+			{
+				cur_level.dequeue(cur);
+				cout << "student"<<i <<":";
+				cout << "\nName: " << cur->item.name;
+				cout << "\nID: " << cur->item.id;
+				cout << "\nAddress: " << cur->item.address;
+				cout << "\nDate of Birth: " << cur->item.DOB;
+				cout << "\nPhone No: " << cur->item.phone_no;
+				cout << "\nCourse: " << cur->item.course;
+				cout << "\nCGPA: " << cur->item.cgpa;
+				cout << "\n";
+			}
+		}
+		else {
+			while (!cur_level.empty()) // clear list
+				cur_level.dequeue(cur);
+			while (!next_level.empty()) { // move next level to cur level
+				next_level.dequeue(cur);
+				cur_level.enqueue(cur);
+			}
+		}
+	}
+	
+	
+	
+}
+
 
 
 

@@ -21,6 +21,7 @@ struct Student{
 	bool compare2(Student); //using == to compare 2 students struct variable
 	bool compare3(int); //using == to compare student id with the id passed in
 	
+
 };
 
 
