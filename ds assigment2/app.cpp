@@ -21,8 +21,6 @@ int main() {
 	BST t1, t2;
 	char file[30];
 
-	readFile("student.txt", &t1);// read the file and insert the data into the BST
-	t1.display(2,2); // 
 
 	while (choose = menu(), choose != 7) {
 		if (choose == 1) {
@@ -32,7 +30,9 @@ int main() {
 			else cout << "read file successful";
 		}
 
-		else if (choose == 2);
+		else if (choose == 2)
+			if(t1.deepestNodes())
+				cout<< "the tree is empty";
 
 		else if (choose == 3) {
 			cout << "print in ascending or descending order according to id. Use order = 1 for ascending and order = 2 for descending." << endl;
