@@ -355,15 +355,7 @@ void BST::display3(BTNode* cur,int source,ofstream& filename) {
 		cout << "\n";
 	}
 	else {
-		filename << "\nName: " << cur->item.name;
-		filename << "\nID: " << cur->item.id;
-		filename << "\nAddress: " << cur->item.address;
-		filename << "\nDate of Birth: " << cur->item.DOB;
-		filename << "\nPhone No: " << cur->item.phone_no;
-		filename << "\nCourse: " << cur->item.course;
-		filename << "\nCGPA: " << cur->item.cgpa;
-		filename << "\n";
-
+		cur->item.print(filename);
 	}
 	return;
 }
