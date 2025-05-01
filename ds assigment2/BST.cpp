@@ -310,30 +310,31 @@ bool BST::display(int order, int source) {
 
 	if (empty())
 		return false;
-	ofstream output("student-info.txt",ios::trunc); // clear the file
+	ofstream output("student-info.txt"); // clear the file
+
+	display2(root, order, source , output);
 	output.close();
-	display2(root, order, source);
 	return true;
 }
 
-void BST::display2(BTNode* cur, int order, int source) {
+void BST::display2(BTNode* cur, int order, int source , ofstream& filename) {
 	if (cur == NULL) return;
 
 	if (order == 1) { // pre-order
 
 		if (cur->left != NULL)
-			display2(cur->left, order, source);
-		display3(cur, source);
+			display2(cur->left, order, source, filename);
+		display3(cur, source,filename);
 		if (cur->right != NULL)
-			display2(cur->right, order, source);
+			display2(cur->right, order, source, filename);
 	}
 	else{
 
 		if (cur->right != NULL)
-			display2(cur->right, order, source);
-		display3(cur, source);
+			display2(cur->right, order, source, filename);
+		display3(cur, source,filename);
 		if (cur->left != NULL)
-			display2(cur->left, order, source);
+			display2(cur->left, order, source, filename);
 		
 	
 	}
@@ -341,7 +342,7 @@ void BST::display2(BTNode* cur, int order, int source) {
 }
 
 
-void BST::display3(BTNode* cur,int source) {
+void BST::display3(BTNode* cur,int source,ofstream& filename) {
 
 	if (source == 1) {
 		cout << "\nName: " << cur->item.name;
@@ -354,19 +355,7 @@ void BST::display3(BTNode* cur,int source) {
 		cout << "\n";
 	}
 	else {
-		ofstream output("student-info.txt", ios::app); // append to file
-		if (!output) {
-			cout << "Error opening file" << endl;
-		}
-		output << "\nName: " << cur->item.name;
-		output << "\nID: " << cur->item.id;
-		output << "\nAddress: " << cur->item.address;
-		output << "\nDate of Birth: " << cur->item.DOB;
-		output << "\nPhone No: " << cur->item.phone_no;
-		output << "\nCourse: " << cur->item.course;
-		output << "\nCGPA: " << cur->item.cgpa;
-		output << "\n";
-		output.close(); // close the file
+		cur->item.print(filename);
 	}
 	return;
 }

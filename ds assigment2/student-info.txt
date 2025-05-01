@@ -1,0 +1,48 @@
+
+Name: Phua Chu Kang
+ID: 19
+Address: 11-08-1964
+Date of Birth: 50 PCK Avenue, MalayCS
+Phone No: 345-6780
+Course: CS
+CGPA: 3.12076
+
+Name: Zoe Tay
+ID: 21
+Address: 15-02-1968
+Date of Birth: 100 Blue Eyed St, MaCS
+Phone No: 456-1234
+Course: CS
+CGPA: 3.12076
+
+Name: Ben Affleck
+ID: 22
+Address: 25-10-1968
+Date of Birth: 200 Hunting Street, IB
+Phone No: 432-4579
+Course: IB
+CGPA: 3.12076
+
+Name: Salma Hayek
+ID: 23
+Address: 06-04-1973
+Date of Birth: 45 Mexican BoulevardCS
+Phone No: 790-0000
+Course: CS
+CGPA: 3.12076
+
+Name: Matt Damon
+ID: 28
+Address: 10-10-1970
+Date of Birth: 465 Ripley BoulevardCS
+Phone No: 790-3233
+Course: CS
+CGPA: 3.12076
+
+Name: Julia Roberts
+ID: 125
+Address: 15-08-1965
+Date of Birth: 100 Brokovich St, MaIB
+Phone No: 456-4321
+Course: IB
+CGPA: 3.23678
