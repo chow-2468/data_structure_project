@@ -411,12 +411,71 @@ bool BST::CloneSubtree(BST t1, type item) {
 
 
 bool BST::printLevelNodes() {
+	BTNode* cur;
+	Queue		    q;
+	int level = 1, size = 0;
 
-	topDownLevelTraversal();
+	if (empty()) return false;
+	q.enqueue(root);
+
+
+	while (!q.empty()) {
+		size = q.count;
+		cout << "Level " << level << " nodes: ";
+
+		for (int i = 0;i < size;i++) {
+			q.dequeue(cur);
+			if (cur != NULL) {
+				cout << cur->item.id << "\t";
+
+				if (cur->left != NULL)
+					q.enqueue(cur->left);
+
+				if (cur->right != NULL)
+					q.enqueue(cur->right);
+			}
+		}
+
+
+		cout << endl;
+		level++;
+	}
 
 	return true;
 }
 
-bool BST::printPath() {
+
+bool BST::printPath3(BTNode* cur) {//read external paths
+	if (cur == NULL) return true;
+
+
+	printPath3(cur->left);
+	cout << cur->item.id << "\t";
+}
+
+bool BST::printPath2(BTNode* cur, BTNode* path) {//insert the node to tree
+	if (cur == NULL) return true;
+
+	BTNode* temp = new BTNode(cur->item);
+	temp->left = path;
+	path = temp;
+
+	if (cur->left == NULL && cur->right == NULL) {//if the node is leaf, print the path
+		printPath3(path);
+		cout << endl;
+	}
+
+	printPath2(cur->left, path);
+	printPath2(cur->right, path);
+}
+
+bool BST::printPath() {//print path
+	BTNode* cur = root;
+	BST path;
+	if (root == NULL) return false;
+
+	cout << "Below are all the external paths for the tree : " << endl;
+	printPath2(root, path.root);
 	return true;
 }
+
