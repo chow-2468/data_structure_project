@@ -47,9 +47,10 @@ struct BST {
 
 		bool deepestNodes();	// find the deepest nodes of the tree and print;
 		
-		bool display(int , int );
+		bool display(int, int); // display the tree in asccending or descending order
 		
-		void display2(BTNode*, int, int);
+		void display2(BTNode*, int, int); //  recursive function for display()
+		void display3(BTNode*,int);//  print the tree
 
 		BTNode* finditem(BTNode*, type);
 		bool CloneSubtree2(BTNode*, BTNode*&);

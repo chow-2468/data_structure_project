@@ -323,6 +323,7 @@ void BST::display2(BTNode* cur, int order, int source) {
 
 		if (cur->left != NULL)
 			display2(cur->left, order, source);
+		display3(cur, source);
 		if (cur->right != NULL)
 			display2(cur->right, order, source);
 	}
@@ -330,12 +331,17 @@ void BST::display2(BTNode* cur, int order, int source) {
 
 		if (cur->right != NULL)
 			display2(cur->right, order, source);
-
+		display3(cur, source);
 		if (cur->left != NULL)
 			display2(cur->left, order, source);
 		
 	
 	}
+	return;
+}
+
+
+void BST::display3(BTNode* cur,int source) {
 
 	if (source == 1) {
 		cout << "\nName: " << cur->item.name;
@@ -351,7 +357,6 @@ void BST::display2(BTNode* cur, int order, int source) {
 		ofstream output("student-info.txt", ios::app); // append to file
 		if (!output) {
 			cout << "Error opening file" << endl;
-			return;
 		}
 		output << "\nName: " << cur->item.name;
 		output << "\nID: " << cur->item.id;
@@ -363,6 +368,7 @@ void BST::display2(BTNode* cur, int order, int source) {
 		output << "\n";
 		output.close(); // close the file
 	}
+	return;
 }
 
 

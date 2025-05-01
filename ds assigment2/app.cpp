@@ -20,6 +20,9 @@ int main() {
 	type item;
 	BST t1, t2;
 	char file[30];
+	BST t1; // create a BST object
+	readFile("student.txt", &t1);// read the file and insert the data into the BST
+	t1.display(2,1); // 
 
 	while (choose = menu(), choose != 7) {
 		if (choose == 1) {
