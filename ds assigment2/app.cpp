@@ -17,7 +17,8 @@ bool readFile(const char *, BST *);
 
 int main() {
 	int choose, order;
-	BST t1;
+	BST t1, t2;
+	type item;
 	char file[30];
 	BST t1; // create a BST object
 	readFile("student.txt", &t1);// read the file and insert the data into the BST
@@ -25,23 +26,33 @@ int main() {
 
 	while (choose = menu(), choose != 7) {
 		if (choose == 1) {
+			cout << "file name: ";
+			cin >> file;
+			if (!readFile(file, &t1)) cout << "cannot read file";
+			else cout << "read file successful";
+		}
+
+		else if (choose == 2);
+
+		else if (choose == 3) {
 			cout << "print in ascending or descending order according to id. Use order = 1 for ascending and order = 2 for descending." << endl;
 			cout << "please key in print order";
 			cin >> order;
-			if (order == 1) {
+			if (order == 1 || order == 2) {
 
 			}
-			else if (order == 2)
-			{
-
-			}
+			else cout << "invalid input";
 		}
-		else if (choose == 2);
-		else if (choose == 3);
-		else if (choose == 4);
+
+		else if (choose == 4) {
+			cout << "please enter the clone subtree id";
+			cin >> item.id;
+			t2.CloneSubtree(t1, item);
+		}
+
 		else if (choose == 5);
+
 		else if (choose == 6);
-		else if (choose == 7);
 	}
 	system("pause");
 	return 0;
@@ -164,6 +175,7 @@ int menu() {
 		cout << "(4) Clone Subtree" << endl;
 		cout << "(5) Print Level Nodes" << endl;
 		cout << "(6) Print Path" << endl;
+		cout << "(7) Exit" << endl;
 		cout << "Please choose an option: ";
 
 		if (cin >> choose && choose >= 1 && choose <= 7) {

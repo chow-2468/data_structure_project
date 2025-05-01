@@ -55,6 +55,9 @@ struct BST {
 		bool CloneSubtree2(BTNode*, BTNode*&);
 		bool CloneSubtree(BST, type);
 
+		bool printLevelNodes();
+		bool printPath();
+
 };
 
 
