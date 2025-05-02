@@ -361,37 +361,34 @@ void BST::display3(BTNode* cur,int source,ofstream& filename) {
 }
 
 
-BTNode* BST::finditem(BTNode* cur, type item) {
-	if (cur->item.id == NULL) return NULL;
+BTNode* BST::finditem(BTNode* cur, type item) {//find item address and return
+	if (cur == NULL) return NULL;
 	if (cur->item.compare2(item))  return cur;
 	if (cur->item.compare1(item))finditem(cur->left, item);
 	else finditem(cur->right, item);
 
 }
 
-bool BST::CloneSubtree2(BTNode* cur, BTNode*& root) {
+bool BST::CloneSubtree2(BTNode* cur, BTNode*& root) { 
 	if (cur == NULL) return true;
 
-	root = new BTNode(cur->item);
+	root = new BTNode(cur->item);//copy the item to the tree
 	return CloneSubtree2(cur->left, root->left) && CloneSubtree2(cur->right, root->right);
 }
 
 bool BST::CloneSubtree(BST t1, type item) {
 	if (!empty()) return false;
-	if (t1.empty()) return false;
+	if (t1.empty()) return false;//check condition 
 
 
 	BTNode* cur = t1.finditem(t1.root, item);
-	if (cur == NULL) {
-		cout << "Cannot clone subtree." << endl;
-		return false;
-	}
+	if (cur == NULL) return false;//if the item cannot find return false
 
-	CloneSubtree2(cur, root);
+	CloneSubtree2(cur, root);//clone the subtree
 
-	cout << "T1:" << endl;
+	cout << "T1:" << endl;//display t1
 	t1.preOrderPrint();
-	cout << "T2:" << endl;
+	cout << "T2:" << endl;//display t2
 	preOrderPrint();
 
 	return true;
@@ -399,7 +396,7 @@ bool BST::CloneSubtree(BST t1, type item) {
 
 
 
-bool BST::printLevelNodes() {
+bool BST::printLevelNodes() {//print level nodes
 	BTNode* cur;
 	Queue		    q;
 	int level = 1, size = 0;
@@ -409,10 +406,10 @@ bool BST::printLevelNodes() {
 
 
 	while (!q.empty()) {
-		size = q.count;
-		cout << "Level " << level << " nodes: ";
+		size = q.count;//get the length of the level
+		cout << "Level " << level << " nodes: ";//print level
 
-		for (int i = 0;i < size;i++) {
+		for (int i = 0;i < size;i++) {//print nodes of each level
 			q.dequeue(cur);
 			if (cur != NULL) {
 				cout << cur->item.id << "\t";
@@ -438,14 +435,14 @@ bool BST::printPath3(BTNode* cur) {//read external paths
 	if (cur == NULL) return true;
 
 
-	printPath3(cur->left);
+	printPath3(cur->left);//print external path
 	cout << cur->item.id << "\t";
 }
 
-bool BST::printPath2(BTNode* cur, BTNode* path) {//insert the node to tree
+bool BST::printPath2(BTNode* cur, BTNode* path) {
 	if (cur == NULL) return true;
 
-	BTNode* temp = new BTNode(cur->item);
+	BTNode* temp = new BTNode(cur->item);//insert the node to one side tree
 	temp->left = path;
 	path = temp;
 
