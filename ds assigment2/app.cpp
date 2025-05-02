@@ -103,16 +103,17 @@ bool readFile(const char* filename, BST* t1) {
 		ptr = strchr(hold, '=') + 2;
 		strcpy(strcat_hold, ptr);
 		strncpy(temp.name, strcat_hold, size(temp.name));
-
+		
+		input.getline(hold, 100, '\n'); //get address
+		ptr = strchr(hold, '=') + 2;
+		strcpy(strcat_hold, ptr);
+		strncpy(temp.address, strcat_hold, size(temp.address));
+		
 		input.getline(hold, 100, '\n');// get DOB
 		ptr = strchr(hold, '=') + 2;
 		strcpy(strcat_hold, ptr);
 		strncpy(temp.DOB, strcat_hold, size(temp.DOB));
 
-		input.getline(hold, 100, '\n'); //get address
-		ptr = strchr(hold, '=') + 2;
-		strcpy(strcat_hold, ptr);
-		strncpy(temp.address, strcat_hold, size(temp.address));
 
 		input.getline(hold, 100, '\n');// get phone no
 		ptr = strchr(hold, '=') + 2;
