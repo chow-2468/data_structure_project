@@ -57,7 +57,7 @@ int main() {
 		}
 
 		else if (choose == 4) {//(4) Clone Subtree 
-			cout << "please enter the clone subtree id: ";
+			cout << "please enter the clone subtree start id: ";
 			cin >> item.id;
 			if (!t2.CloneSubtree(t1, item)) cout << "Cannot clone subtree." << endl;
 			else cout << "Clone substree successful" << endl;
