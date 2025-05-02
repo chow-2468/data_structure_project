@@ -46,7 +46,7 @@ int main() {
 			} while (!(order == 1 || order == 2));
 
 			do {
-				cout << "Use source = 1 to print to screen and source = 2  to print to a file name ¡°student - info.txt¡±" << endl;
+				cout << "Use source = 1 to print to screen and source = 2  to print to a file name ï¿½ï¿½student - info.txtï¿½ï¿½" << endl;
 				cout << "Please key in print source: ";
 				cin >> source;
 				if (!(source == 1 || source == 2))cout << "Invalid input"<<endl;
