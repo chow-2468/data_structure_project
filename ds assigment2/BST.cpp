@@ -310,7 +310,7 @@ bool BST::display(int order, int source) {
 
 	if (empty())
 		return false;
-	ofstream output("student-info.txt"); // clear the file
+	ofstream output("student-info.txt"); // open file if file is not exist will create a new file
 
 	display2(root, order, source , output);
 	output.close();
@@ -320,7 +320,7 @@ bool BST::display(int order, int source) {
 void BST::display2(BTNode* cur, int order, int source , ofstream& filename) {
 	if (cur == NULL) return;
 
-	if (order == 1) { // pre-order
+	if (order == 1) { // ascending order
 
 		if (cur->left != NULL)
 			display2(cur->left, order, source, filename);
@@ -328,7 +328,7 @@ void BST::display2(BTNode* cur, int order, int source , ofstream& filename) {
 		if (cur->right != NULL)
 			display2(cur->right, order, source, filename);
 	}
-	else{
+	else { // descending order
 
 		if (cur->right != NULL)
 			display2(cur->right, order, source, filename);

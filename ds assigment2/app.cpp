@@ -92,7 +92,7 @@ bool readFile(const char* filename, BST* t1) {
 	char hold[100]; // hold value read from file
 	char strcat_hold[100]= ""; 
 	char* ptr;
-	while (!input.eof()) { //get whole line untill meet '\n'
+	while (!input.eof()) { //not end of file continue the iteration
 		input.getline(hold, 100, '\n');
 		ptr = strchr(hold, '=') + 2; // point to the position after "= " which is the value we want
 		strcpy(strcat_hold, ptr);
