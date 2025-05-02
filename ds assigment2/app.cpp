@@ -25,7 +25,7 @@ int main() {
 	while (choose = menu(), choose != 7) {//if choose == 7, (7) Exit
 
 		if (choose == 1) {//(1) Read data to BST 
-			cout << "file name: ";
+			cout << "Please enter the file name in .txt: ";
 			cin >> file;
 			if (!readFile(file, &t1)) cout << "Read file failure"<<endl;
 			else cout << "Read file successful"<<endl;
