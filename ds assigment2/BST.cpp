@@ -431,7 +431,7 @@ bool BST::printLevelNodes() {//print level nodes
 }
 
 
-bool BST::printPath3(BTNode* cur) {//read external paths
+bool BST::printPath3(BTNode* cur) {//read  and print external paths
 	if (cur == NULL) return true;
 
 
@@ -455,7 +455,7 @@ bool BST::printPath2(BTNode* cur, BTNode* path) {
 	printPath2(cur->right, path);
 }
 
-bool BST::printPath() {//print path
+bool BST::printPath() {//start print path
 	BTNode* cur = root;
 	BST path;
 	if (root == NULL) return false;
