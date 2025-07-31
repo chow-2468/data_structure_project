@@ -1,6 +1,6 @@
 # BST data structure
 it is a two person project
-- read students' infomation from a txt file
+- read students' information from a txt file
 - display deepest level node
 - print path
 - write to file ascending or descending
